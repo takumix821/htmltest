@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tag{
+            font-weight:normal;
+            color:black}
+        .selected-tag{
+            font-weight:bold;
+            color:red}
+    </style>
+</head>
+<body>
+    <h3>Search Box</h3>
+    <div>
+        <span id = "page" onclick = "change('page');" class = "selected-tag">Page</span>
+        <span id = "image" onclick = "change('image');" class = "tag">Image</span>
+    </div>
+    <div>
+        <input type = "text"/>
+        <input id = "btn" type = "button" value = "Page Search"/>
+    </div>
+    <script>
+        let page = document.querySelector("#page");
+        let image = document.querySelector("#image");
+        let btn = document.querySelector("#btn");
+        /*
+        function change_to_img(){
+            page.className = "tag";
+            image.className = "selected-tag";
+            btn.value = "Image Search";
+        }
+        function change_to_page(){
+            page.className = "selected-tag";
+            image.className = "tag";
+            btn.value = "Page Search";
+        }
+        */
+        
+        function change(input){
+            if (input == 'image'){
+                page.className = "tag";
+                image.className = "selected-tag";
+                btn.value = "Image Search";
+            }else{
+                page.className = "selected-tag";
+                image.className = "tag";
+                btn.value = "Page Search";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
