@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width:100px; height:100px; background-color:#3BC4CE;
+            position:fixed; /*defalt: static*/ left:0px;top:0px;
+        }
+        .head{
+            background-color:#20603F; height:30px
+        }
+    </style>
+</head>
+<body>
+    <div id = "box" class = "box">
+        <div id = "head" class = "head">Drag Here</div>
+        <div class = "content">
+            <div id = "fig" style = "display:None;">
+                <img src="chiikawa.jpeg" style = "width:100px; height:60px;"/>
+            </div>
+        </div>
+    </div>
+    <script>
+        let box = document.querySelector('#box');
+        let boxhead = document.querySelector('#head');
+        let fig = document.querySelector('#fig');
+        let down = function(){
+            document.addEventListener("mousemove", move);
+            fig.style.display = 'Block';
+            box.style.opacity = '0.70';
+        }
+        let up = function(){
+            document.removeEventListener("mousemove", move);
+            fig.style.display = 'None';
+            box.style.opacity = '1';
+        }
+        let move = function(e){
+            // console.log(e.clientX, e.clientY);
+            box.style.left = (e.clientX-20) + "px";
+            box.style.top = (e.clientY-20) + "px";
+        }
+        boxhead.addEventListener("mousedown", down);
+        boxhead.addEventListener("mouseup", up);
+
+    </script>
+</body>
+</html>
